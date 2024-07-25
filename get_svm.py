@@ -24,6 +24,17 @@ with open(r"svm_target.txt", "r") as file:
             print(f"Warning: Skipping line due to error: {e}")
 np_target = np.array(target)
 
+
+'''#apply SMOTE for data better balancing
+from imblearn.over_sampling import SMOTE
+
+# Initialize SMOTE
+sm = SMOTE(random_state=42)
+
+# Apply SMOTE to the dataset
+np_database_resampled, np_target_resampled = sm.fit_resample(np_database, np_target)'''
+
+
 # split data into training set and teseting set
 X_train, X_test, y_train, y_test = train_test_split(
     np_database, np_target, test_size=0.3, random_state=42
